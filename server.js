@@ -11,9 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 // middlewares, parse incoming JSON datas sent thru POST request
 app.use(express.json());
 // middlewares, serves up all files in public
-app.use(express.static('public'));
+app.use(express.static('./public'));
 // middlewares, for informing the app about routes
-// app.use('/api', apiRoutes);
+app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 app.listen(PORT, () => {
