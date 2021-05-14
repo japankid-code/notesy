@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { validateNote } = require('../../lib/notes')
-const { notes } = require('../../db/db');
+const { validateNote } = require('../../lib/notes');
+const fs = require('fs');
+const path = require('path');
+const notes = require('../../db/db');
 
 router.get('/notes', function(req, res) {
   let results = notes;
@@ -8,20 +10,20 @@ router.get('/notes', function(req, res) {
 })
 
 router.post('/notes', function(req, res) {
+  req.body.id = notes.length + 1;
   let request = req.body
   if (validateNote(request) === true) {
     notes.push(request);
     res.json(notes);
+    fs.writeFileSync(path.join(__dirname, '../../db/db.json'), JSON.stringify(notes))
   }
   res.send(`no note posted`)
 })
 
 router.delete('/notes/:id', function(req, res) {
   let id = parseInt(req.params.id) - 1;
-  console.log(id);
-  // return only the ones that don't match the id requested
   const result = notes.splice(id, 1);
-  console.log(result)
+  fs.writeFileSync(path.join(__dirname, '../../db/db.json'), JSON.stringify(notes))
   res.json(result);
 })
 

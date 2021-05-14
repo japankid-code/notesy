@@ -1,14 +1,1 @@
-{"notes": [
-  {
-    "title": "Test Title1",
-    "text": "Test text1"
-  },
-  {
-    "title": "Test Title2",
-    "text": "Test text2"
-  },
-  {
-    "title": "Test Title3",
-    "text": "Test text3"
-  }
-]}
+[{"title":"SQL command","text":"$ mysql -u root -p","id":1},{"title":"Node command","text":"npm i express","id":2},{"title":"asdf","text":"asdf","id":4}]
