@@ -6,8 +6,7 @@ const path = require('path');
 const notes = require('../../db/db');
 
 router.get('/notes', function(req, res) {
-  let results = notes;
-  res.json(results);
+  res.json(notes);
 })
 
 router.post('/notes', function(req, res) {
@@ -16,8 +15,9 @@ router.post('/notes', function(req, res) {
     notes.push(request);
     res.json(notes);
     fs.writeFileSync(path.join(__dirname, '../../db/db.json'), JSON.stringify(notes))
+  } else {
+    res.send(`no note posted`)
   }
-  res.send(`no note posted`)
 })
 
 router.delete('/notes/:id', function(req, res) {
