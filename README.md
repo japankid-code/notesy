@@ -1,6 +1,6 @@
 # notesy
 
-Backend built by me, front end was starter code.. Link to repo is [here](https://github.com/japankid-code/notesy)
+Backend built by me, front end was starter code. Link to repo is [here](https://github.com/japankid-code/notesy). App is deployed [here](https://notesies.herokuapp.com/)
 
 ![Unlicense badge](https://img.shields.io/badge/license-Unlicense-blue?style=for-the-badge) ![language badge](https://img.shields.io/github/languages/top/japankid-code/notesy?style=for-the-badge)
 
