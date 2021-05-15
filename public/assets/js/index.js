@@ -43,7 +43,7 @@ const saveNote = (note) =>
   });
 
 const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+  fetch(`/api/notes/${id - 1}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -159,7 +159,7 @@ const renderNoteList = async (notes) => {
     
   jsonNotes.forEach((note, index) => {
     // try to set the id in the data-note attribute somewhere here, 
-    note.id = index;
+    note.id = index + 1;
     const li = createLi(note.title);
     // provide the data-note attribute
     li.dataset.note = JSON.stringify(note);
